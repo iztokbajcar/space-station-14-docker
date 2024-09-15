@@ -1,0 +1,15 @@
+version: "3"
+services:
+  space_station_14:
+    build: .
+    user: ss14
+    ports:
+      - "$PORT:1212/udp"
+      - "$PORT:1212/tcp"
+    volumes:
+      - $DATA_PATH/logs:/home/ss14/logs
+      - $DATA_PATH/data:/home/ss14/data
+      - $DATA_PATH/conf:/home/ss14/conf
+      - $DATA_PATH/replays:/home/ss14/replays
+    command: "--config-file /home/ss14/conf/server_config.toml"
+
