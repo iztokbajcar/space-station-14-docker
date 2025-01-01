@@ -1,7 +1,10 @@
 version: "3"
 services:
   space_station_14:
-    build: .
+    build:
+      context: .
+      args:
+        FORK: $FORK
     user: ss14
     ports:
       - "$PORT:1212/udp"

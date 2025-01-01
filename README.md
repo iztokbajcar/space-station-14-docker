@@ -8,4 +8,5 @@
 ```
 DATA_PATH=space-station-14
 PORT=1212
+FORK=wizden
 ```

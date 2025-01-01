@@ -43,6 +43,7 @@ auto_record = true
 # will automatically be elevated to full admin privileges.
 # This literally works by checking if address == 127.0.0.1 || address == ::1
 loginlocal = true
+#login_host_user = "username"
 
 [hub]
 # Set to true to show this server on the public server list
