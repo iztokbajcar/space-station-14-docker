@@ -14,5 +14,9 @@ services:
       - $DATA_PATH/data:/home/ss14/data
       - $DATA_PATH/conf:/home/ss14/conf
       - $DATA_PATH/replays:/home/ss14/replays
+    environment:
+      DOTNET_TieredPGO: 1
+      DOTNET_TC_QuickJitForLoops: 1
+      DOTNET_ReadyToRun: 0
     command: "--config-file /home/ss14/conf/server_config.toml"
 
