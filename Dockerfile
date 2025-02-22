@@ -7,28 +7,22 @@ RUN apt-get update && apt-get install -y curl unzip wget
 ARG platform=linux-x64
 ARG FORK=wizden
 
-RUN <<EOT bash
-EOT
-
 RUN echo "Build list url: $BUILD_LIST_URL"
 
-RUN <<EOT
-    get_fork_build_url() {
-        case "$FORK" in
-            "goob")
-                BUILD_LIST_URL="https://cdn.simplestation.org/fork/goobstation-lrp"
-                ;;
-            *)
-                BUILD_LIST_URL="https://wizards.cdn.spacestation14.com/fork/wizards"
-                ;;
-        esac
-    }
-    get_fork_build_url
-
+RUN get_fork_build_url() { \
+        case "$FORK" in \
+            "goob") \
+                BUILD_LIST_URL="https://cdn.goobstation.com/fork/GoobLRP" \
+                ;; \
+            *) \
+                BUILD_LIST_URL="https://wizards.cdn.spacestation14.com/fork/wizards" \
+                ;; \
+        esac \
+    } && \
+    get_fork_build_url && \
     version_line="$(curl $BUILD_LIST_URL | grep 'class=\"versionNumber\"' | head -n1)" && \
-	version="$(echo $version_line | cut -c33-72)" && \
-	wget $BUILD_LIST_URL/version/${version}/file/SS14.Server_${platform}.zip
-EOT
+    version="$(echo $version_line | cut -c33-72)" && \
+    wget $BUILD_LIST_URL/version/${version}/file/SS14.Server_${platform}.zip
 
 RUN mkdir /ss14 && \
 	mv SS14.Server_${platform}.zip /ss14 && \
