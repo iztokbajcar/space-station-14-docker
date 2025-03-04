@@ -36,7 +36,7 @@ RUN mkdir /ss14 && \
 
 
 
-FROM mcr.microsoft.com/dotnet/runtime:8.0
+FROM mcr.microsoft.com/dotnet/runtime:9.0
 
 RUN adduser --disabled-password --home /home/ss14 --shell /bin/bash ss14
 COPY --from=fetch /ss14 /home/ss14
