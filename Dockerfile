@@ -14,6 +14,9 @@ RUN get_fork_build_url() { \
             "goob") \
                 BUILD_LIST_URL="https://cdn.goobstation.com/fork/GoobLRP" \
                 ;; \
+	    "frontier") \
+                BUILD_LIST_URL="https://cdn.frontierstation14.com/fork/Frontier" \
+		;; \
             *) \
                 BUILD_LIST_URL="https://wizards.cdn.spacestation14.com/fork/wizards" \
                 ;; \
