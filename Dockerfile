@@ -1,7 +1,7 @@
 # Download build
-FROM debian:10 as fetch
+FROM debian as fetch
 
-RUN apt-get update && apt-get install -y curl unzip wget
+RUN apt-get update -y && apt-get install -y curl unzip wget
 
 # linux-arm64  linux-x64  win-x64  osx-x64
 ARG platform=linux-x64
